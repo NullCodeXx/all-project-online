@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pulsation button</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-image: url("http://wallpaper-gallery.net/images/wallpaper-design/wallpaper-design-9.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        
+        .element {
+            border: none;
+            font-size: 2em;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 50%;
+        }
+        
+        .eventjsinit {
+            animation: eventjsinit 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            margin-top: 50%;
+        }
+        
+        input {
+            color: #000;
+            font-size: 2em;
+            margin-top: 50%;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: #fff;
+        }
+        
+        placeholder {
+            color: red;
+        }
+        
+        .button {
+            color: #000;
+            font-size: 2em;
+            margin-top: 50%;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: #fff;
+        }
+        
+        @keyframes eventjsinit {
+            0% {
+                background-color: red;
+                color: #fff;
+            }
+            100% {
+                background-color: blue;
+                color: #fff;
+                margin-top: -10%;
+            }
+        }
+        
+        .eventjs {
+            animation: eventjs 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+        }
+        
+        @keyframes eventjs {
+            0% {
+                background-color: red;
+                color: #fff;
+                margin-top: -10%;
+            }
+            25% {
+                background-color: orange;
+                color: rosybrown;
+                margin-top: -10%;
+            }
+            50% {
+                background-color: lime;
+                color: yellow;
+                margin-top: -10%;
+            }
+            75% {
+                background-color: violet;
+                color: blueviolet;
+                margin-top: -10%;
+            }
+            100% {
+                background-color: blue;
+                color: violet;
+                margin-top: -10%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <input type="text" id="pulsation" class="input" placeholder="ENTRER DU TEXT">
+        <button class="button" class="element">ChangeColor</button>
+    </section>
+    <script>
+        let val = 1;
+        //Cible button et le save.
+        let button = document.querySelector(".button");
+        //Sauvegarde l'etat initial du button.
+        let saveinit = button.className;
+        //Add event sur le button et faire en sorte qu'il redevienne a l'état initial, l'animation end
+        // feras en sorte de remettre le button de style initial.
+        button.addEventListener("animationend", function() {
+                button.className = saveinit;
+            })
+            //J'ajoute un event au click avec la class css.
+        button.addEventListener("click", function() {
+            let input = document.querySelector("#pulsation");
+            // condition
+            if (input.value === "") {
+                button.classList.add("eventjsinit");
+            } else {
+                button.classList.add("eventjs");
+            }
+        })
+
+        /*
+        add()
+        pour ajouter une classe à la liste
+        remove()
+        pour supprimer une classe de la liste
+        contains()
+        pour vérifier si une classe fait partie de la liste
+        toggle()
+        pour permuter une classe dans une liste
+        item()
+        pour retourner une classe à une position spécifique dans une liste
+        toString()
+        pour convertir la liste en une chaîne de caractères
+        length
+        pour retourner le nombre de classe d’une liste
+        value
+        pour ajouter une propriété ou une méthode perso à l’objet « classList »
+        document.getElementById("monElement").classList.add("maClasse");
+
+        document.getElementById("monElement").classList.remove("maClasse");
+
+        if ( document.getElementById("monElement").classList.contains("maClasse") )
+
+        document.getElementById("monElement").classList.toggle("maClasse");
+                */
+    </script>
+</body>
+
+</html>
