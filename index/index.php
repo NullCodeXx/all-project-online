@@ -177,7 +177,7 @@
     <?php
 
         // Afficher les dossier.
-        $scan = scandir("../Project");
+        $scan = scandir("../projects");
         foreach($scan as $directory) {
             if(!is_dir($directory)) {
                 echo "<ul>";
